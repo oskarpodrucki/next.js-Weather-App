@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { MainWeatherBlock } from "@/components/MainWeatherBlock";
 import { ChildrenWeatherBlock } from "@/components/ChildrenWeatherBlock";
+import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
 	const [currentWeather, setCurrentWeather] = useState(null);
@@ -60,6 +61,7 @@ export default function Home() {
 			<div id='main' className='flex justify-center items-center h-[500px]'>
 				{currentWeather && <MainWeatherBlock weather={currentWeather} />}
 			</div>
+			<Separator orientation="horizontal"/>
 			<div id='children' className='flex justify-evenly items-center h-[388px]'>
 				{futureWeather &&
 					futureWeather.list
