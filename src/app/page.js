@@ -14,7 +14,7 @@ export default function Home() {
 		const getCurrentWeather = async () => {
 			try {
 				const res = await fetch(
-					`https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=eedaa662984b720f11bc0c8b71b663c3`
+					`https://api.openweathermap.org/data/2.5/weather?lat=52.235222460806824&lon=21.007971334854712&appid=eedaa662984b720f11bc0c8b71b663c3`
 				);
 				const dataJson = await res.json();
 				setCurrentWeather(dataJson);
@@ -35,9 +35,9 @@ export default function Home() {
 		const getFutureWeather = async () => {
 			try {
 				const res = await fetch(
-					`https://api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&cnt=4&appid=eedaa662984b720f11bc0c8b71b663c3`
+					`https://api.openweathermap.org/data/2.5/forecast?lat=52.13&lon=21&cnt=26&appid=eedaa662984b720f11bc0c8b71b663c3`
 				);
-        
+
 				const dataJson = await res.json();
 				setFutureWeather(dataJson);
 				console.log(dataJson);
@@ -60,13 +60,15 @@ export default function Home() {
 			<div id='main' className='flex justify-center items-center h-[500px]'>
 				{currentWeather && <MainWeatherBlock weather={currentWeather} />}
 			</div>
-			<div
-				id='children'
-				className='flex justify-evenly items-center h-[388px]'>
+			<div id='children' className='flex justify-evenly items-center h-[388px]'>
 				{futureWeather &&
-					futureWeather.list.map((weather, idx) => (
-						<ChildrenWeatherBlock key={idx} weather={weather} />
-					))}
+					futureWeather.list
+						.filter(
+							(_, idx) => idx === 1 || idx === 9 || idx === 17 || idx === 25
+						)
+						.map((weather, idx) => (
+							<ChildrenWeatherBlock key={idx} weather={weather} />
+						))}
 			</div>
 		</div>
 	);
