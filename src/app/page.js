@@ -36,7 +36,7 @@ export default function Home() {
 		const getFutureWeather = async () => {
 			try {
 				const res = await fetch(
-					`https://api.openweathermap.org/data/2.5/forecast?lat=52.13&lon=21&cnt=26&appid=eedaa662984b720f11bc0c8b71b663c3`
+					`https://api.openweathermap.org/data/2.5/forecast?lat=52.13&lon=21&cnt=35&appid=eedaa662984b720f11bc0c8b71b663c3`
 				);
 
 				const dataJson = await res.json();
@@ -66,7 +66,7 @@ export default function Home() {
 				{futureWeather &&
 					futureWeather.list
 						.filter(
-							(_, idx) => idx === 1 || idx === 9 || idx === 17 || idx === 25
+							(_, idx) => idx === 9 || idx === 17 || idx === 25 || idx === 34
 						)
 						.map((weather, idx) => (
 							<ChildrenWeatherBlock key={idx} weather={weather} />

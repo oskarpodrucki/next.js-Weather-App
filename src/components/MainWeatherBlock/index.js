@@ -62,7 +62,7 @@ export function MainWeatherBlock({ weather }) {
 				<Separator orientation='vertical' />
 				<div className='flex flex-col justify-center items-center w-[90px] h-[90px]'>
 					<Wind className='mb-2' />
-					{weather.wind.speed}km/h
+					{(weather.wind.speed*0.44).toFixed(2)}km/h
 				</div>
 			</CardContent>
 		</Card>
