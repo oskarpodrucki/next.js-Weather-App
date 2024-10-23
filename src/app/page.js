@@ -62,11 +62,11 @@ export default function Home() {
 				{currentWeather && <MainWeatherBlock weather={currentWeather} />}
 			</div>
 			<Separator orientation="horizontal"/>
-			<div id='children' className='flex justify-evenly items-center h-[388px]'>
+			<div id='children' className='flex justify-evenly items-center mt-3 h-[388px]'>
 				{futureWeather &&
 					futureWeather.list
 						.filter(
-							(_, idx) => idx === 9 || idx === 17 || idx === 25 || idx === 34
+							(_, idx) => idx === 9 || idx === 17 || idx === 25 || idx === 33
 						)
 						.map((weather, idx) => (
 							<ChildrenWeatherBlock key={idx} weather={weather} />
